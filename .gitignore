@@ -1,0 +1,6 @@
+#python generated
+__pycache__/
+*.pyc
+
+#secret
+.env

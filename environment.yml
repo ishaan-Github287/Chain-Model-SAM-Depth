@@ -1,0 +1,10 @@
+name: ChainModelSamDepth
+
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - torch==2.13.0
+      - matplotlib==3.11.1
+      - numpy==1.26.4
+      - Pillow==12.3.0
