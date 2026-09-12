@@ -2,7 +2,7 @@
 
 
 
-I combined Depth Anything v3 and SAM 2 and wrote a program that can determine the average depth value of an object given a point in the image.
+I combined Depth Anything v3 and SAM 2 to create a program that determines the estimated average depth value of an object given a point in the image.
 
 ## Acknowledgements:
   - Depth anything v3 for depth estimation
