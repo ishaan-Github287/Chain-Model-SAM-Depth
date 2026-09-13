@@ -5,8 +5,17 @@ from sam2.build_sam import build_sam2
 from sam2.sam2_image_predictor import SAM2ImagePredictor
 from PIL import Image
 
+#get device type
+if torch.cuda.is_available():
+    device_str = "cuda"
+else:
+    device_Str = "cpu"
+#device_Str = xxx
+device = torch.device(device_Str)
+print(f"using device: {device}")
+
+
 #FIND IMAGE PATH
-device = torch.device("cpu")
 example_path = "Depth-Anything-3/assets/examples/SOH"
 images = sorted(glob.glob(os.path.join(example_path, "*.png")))
 
@@ -25,12 +34,12 @@ SAMData = DepthPrediction.processed_images[0]
 
 checkpoint = "./sam2/checkpoints/sam2.1_hiera_large.pt"
 model_cfg = "configs/sam2.1/sam2.1_hiera_l.yaml"
-predictor = SAM2ImagePredictor(build_sam2(model_cfg, checkpoint, device = "cpu"))
+predictor = SAM2ImagePredictor(build_sam2(model_cfg, checkpoint, device = device_Str))
 
 input_point = np.array([[424, 200]])
 input_label = np.array([1])
 #print(images[0].dtype)
-with torch.inference_mode(), torch.autocast(device_type = "cpu", dtype=torch.bfloat16):
+with torch.inference_mode(), torch.autocast(device_type = device_Str, dtype=torch.bfloat16):
     predictor.set_image(SAMData)
     SAM_predictions = predictor.predict(
         point_coords=input_point,
@@ -53,6 +62,7 @@ if __name__ == '__main__':
 
     maskColor = np.array([0, 255, 0])
     imsize = SAM_predictions[0].shape[-2:]
+    mask = SAM_predictions[0][0]
     mask = mask.astype(np.uint8)
     mask_imagePLT = mask.reshape(imsize[0], imsize[1], 1) * maskColor.reshape(1, 1, -1)
     #ax.imshow(mask_imagePLT)
