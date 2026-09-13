@@ -42,7 +42,7 @@ Chain-Model-SAM-Depth/
 
   - This model uses the first ".png" image found in "Depth-Anything-3/assets/examples/SOH". If you would like to run the model with a different image, simply change the image path defined in the "DepthData" variable of "IshCode/DepthFirstProgram.py" to the desired image path.
   - The point on the image which selects the mask is defined as (424, 200). This can be changed on line 39 of IshCode/DepthFistProgram.py by replacing "424" with the desired x value in pixels and "200" with the desired y value in pixels. The point chosen is also visualized as a green star on top of the chosen image at the end of the program, in order to verify the point selection.
-  - This program assumes that you are running that you are running the Machine Learning Models on a CPU or a CUDA-compatible GPU. If you would like to run the model on a different device, simply uncomment line 13 of "IshCode/DepthFirstProgram.py", where "device_Str" is redefined, and replace the "xxx" with a string containing the desired device type.
+  - This program assumes that you are running the machine learning models on a CPU or a CUDA-compatible GPU. If you would like to run the model on a different device, simply uncomment line 13 of "IshCode/DepthFirstProgram.py", where "device_Str" is redefined, and replace the "xxx" with a string containing the desired device type.
 
 **Note**: If you use or build upon this project, please also cite the original works:
   - Lin et al., Depth Anything 3: Recovering the visual space from any views, 2025.
