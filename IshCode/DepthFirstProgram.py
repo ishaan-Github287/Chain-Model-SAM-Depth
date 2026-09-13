@@ -7,7 +7,7 @@ from PIL import Image
 
 #get device type
 if torch.cuda.is_available():
-    device_str = "cuda"
+    device_Str = "cuda"
 else:
     device_Str = "cpu"
 #device_Str = xxx
