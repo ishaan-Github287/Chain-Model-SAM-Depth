@@ -4,6 +4,12 @@
 
 I combined Depth Anything v3 and SAM 2 to create a program that determines the estimated average depth value of an object given a point in the image, and also displays the selected image mask in green on a separate screen.
 
+**Visualization Example**
+
+Below is an example of the visualizer that runs towards the end of the program. It visualizes the image, the mask of the object (in green) on top of the image, and the point selected for analyzation (the green star) on top of the mask.
+
+![image_alt](ExampleResult.png)
+
 ## Acknowledgements:
   - Depth anything v3 for depth estimation
   - SAM 2 for object segmentation
@@ -41,7 +47,7 @@ Chain-Model-SAM-Depth/
 ### Things to customize
 
   - This model uses the first ".png" image found in "Depth-Anything-3/assets/examples/SOH". If you would like to run the model with a different image, simply change the image path defined in the "DepthData" variable of "IshCode/DepthFirstProgram.py" to the desired image path.
-  - The point on the image which selects the mask is defined as (424, 200). This can be changed on line 39 of IshCode/DepthFistProgram.py by replacing "424" with the desired x value in pixels and "200" with the desired y value in pixels. The point chosen is also visualized as a green star on top of the chosen image at the end of the program, in order to verify the point selection.
+  - The point on the image which selects the mask is defined as (424, 200). This can be changed on line 39 of IshCode/DepthFistProgram.py by replacing "424" with the desired x value in pixels and "200" with the desired y value in pixels. The point chosen is also visualized as a green star on top of the chosen image (visualization example at the top of this document) at the end of the program, in order to verify the point selection.
   - This program assumes that you are running the machine learning models on a CPU or a CUDA-compatible GPU. If you would like to run the model on a different device, simply uncomment line 13 of "IshCode/DepthFirstProgram.py", where "device_Str" is redefined, and replace the "xxx" with a string containing the desired device type.
 
 **Note**: If you use or build upon this project, please also cite the original works:
